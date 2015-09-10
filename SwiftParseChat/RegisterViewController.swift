@@ -72,6 +72,8 @@ class RegisterViewController: UITableViewController, UITextFieldDelegate {
         user[PF_USER_EMAILCOPY] = email
         user[PF_USER_FULLNAME] = name
         user[PF_USER_FULLNAME_LOWER] = name.lowercaseString
+        user["promoter"] = 0
+        user["request"] = 0
         user.signUpInBackgroundWithBlock { (succeeded: Bool, error: NSError!) -> Void in
             if error == nil {
                 PushNotication.parsePushUserAssign()

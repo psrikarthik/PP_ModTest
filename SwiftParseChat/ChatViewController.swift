@@ -6,7 +6,7 @@ import UIKit
 import Foundation
 import MediaPlayer
 
-class ChatViewController: JSQMessagesViewController, UICollectionViewDataSource, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ChatViewController: JSQMessagesViewController, UICollectionViewDataSource, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     var timer: NSTimer = NSTimer()
     var isLoading: Bool = false
@@ -25,11 +25,15 @@ class ChatViewController: JSQMessagesViewController, UICollectionViewDataSource,
     
     var senderImageUrl: String!
     var batchMessages = true
+    let newColor = UIColor(red: 46, green: 55, blue: 74, alpha: 1.0)
+    
+    
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = UIColorFromRGB(0x465574)
         var user = PFUser.currentUser()
         self.senderId = user.objectId
         self.senderDisplayName = user[PF_USER_FULLNAME] as! String
@@ -43,6 +47,17 @@ class ChatViewController: JSQMessagesViewController, UICollectionViewDataSource,
         self.loadMessages()
         Messages.clearMessageCounter(groupId);
     }
+    
+    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+    
+  
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)

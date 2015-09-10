@@ -6,3 +6,4 @@
 #import <ProgressHUD/ProgressHUD.h>
 #import <JSQMessages.h>
 #import <APAddressBook-Bridging.h>
+#import <Firebase/Firebase.h>

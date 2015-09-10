@@ -4,25 +4,25 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-Alamofire.xcscheme</key>
+		<key>Alamofire.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>A71E4F39E502CDE6BB93D947</key>
+		<key>8AB54BA3B65616A5187CF55D7817E827</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CC56828EA2AAE7BCE22174BE</key>
+		<key>E9AD967CAA74F482799165449970707E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

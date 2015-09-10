@@ -2,7 +2,7 @@
 
 import UIKit
 
-class MessagesViewController: UITableViewController, UIActionSheetDelegate, SelectSingleViewControllerDelegate, SelectMultipleViewControllerDelegate, AddressBookViewControllerDelegate, FacebookFriendsViewControllerDelegate {
+class MessagesViewController: UITableViewController, UIActionSheetDelegate, SelectSingleViewControllerDelegate {
     
     var messages = [PFObject]()
     // UITableViewController already declares refreshControl
@@ -106,16 +106,7 @@ class MessagesViewController: UITableViewController, UIActionSheetDelegate, Sele
             let selectSingleVC = segue.destinationViewController.topViewController as! SelectSingleViewController
             selectSingleVC.delegate = self
         }
-//        } else if segue.identifier == "selectMultipleSegue" {
-//            let selectMultipleVC = segue.destinationViewController.topViewController as! SelectMultipleViewController
-//            selectMultipleVC.delegate = self
-//        } else if segue.identifier == "addressBookSegue" {
-//            let addressBookVC = segue.destinationViewController.topViewController as! AddressBookViewController
-//            addressBookVC.delegate = self
-//        } else if segue.identifier == "facebookFriendsSegue" {
-//            let facebookFriendsVC = segue.destinationViewController.topViewController as! FacebookFriendsViewController
-//            facebookFriendsVC.delegate = self
-//        }
+
     }
 
     // MARK: - UIActionSheetDelegate
@@ -125,12 +116,7 @@ class MessagesViewController: UITableViewController, UIActionSheetDelegate, Sele
             switch buttonIndex {
             case 1:
                 self.performSegueWithIdentifier("selectSingleSegue", sender: self)
-//            case 2:
-//                self.performSegueWithIdentifier("selectMultipleSegue", sender: self)
-//            case 3:
-//                self.performSegueWithIdentifier("addressBookSegue", sender: self)
-//            case 4:
-//                self.performSegueWithIdentifier("facebookFriendsSegue", sender: self)
+
                 default:
                 return
             }
@@ -144,12 +130,20 @@ class MessagesViewController: UITableViewController, UIActionSheetDelegate, Sele
         let groupId = Messages.startPrivateChat(user1, user2: user2)
         self.openChat(groupId)
     }
+//    
+//    func chatUser(user2: PFUser){
+//        
+//        let user1 = PFUser.currentUser()
+//        let groupId = Messages.startPrivateChat(user1, user2: user2)
+//        self.openChat(groupId)
+//        
+//    }
     
     // MARK: - SelectMultipleDelegate
     
     func didSelectMultipleUsers(selectedUsers: [PFUser]!) {
-        let groupId = Messages.startMultipleChat(selectedUsers)
-        self.openChat(groupId)
+       // let groupId = Messages.startMultipleChat(selectedUsers)
+        //self.openChat(groupId)
     }
     
     // MARK: - AddressBookDelegate

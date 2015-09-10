@@ -87,6 +87,8 @@ class WelcomeViewController: UIViewController {
                 user[PF_USER_FACEBOOKID] = userData["id"]
                 user[PF_USER_PICTURE] = filePicture
                 user[PF_USER_THUMBNAIL] = fileThumbnail
+                user["promoter"] = 0
+                user["request"] = 0
                 user.saveInBackgroundWithBlock({ (succeeded: Bool, error: NSError!) -> Void in
                     if error == nil {
                         self.userLoggedIn(user)

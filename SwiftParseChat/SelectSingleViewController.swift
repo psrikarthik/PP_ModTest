@@ -51,23 +51,23 @@ class SelectSingleViewController: UITableViewController, UISearchBarDelegate {
         }
     }
     
-    func searchUsers(searchLower: String) {
-        let user = PFUser.currentUser()
-        var query = PFQuery(className: PF_USER_CLASS_NAME)
-        query.whereKey(PF_USER_OBJECTID, notEqualTo: user.objectId)
-        query.whereKey(PF_USER_FULLNAME_LOWER, containsString: searchLower)
-        query.orderByAscending(PF_USER_FULLNAME)
-        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
-            if error == nil {
-                self.users.removeAll(keepCapacity: false)
-                self.users += objects as! [PFUser]!
-                self.tableView.reloadData()
-            } else {
-                ProgressHUD.showError("Network error")
-            }
-            
-        }
-    }
+//    func searchUsers(searchLower: String) {
+//        let user = PFUser.currentUser()
+//        var query = PFQuery(className: PF_USER_CLASS_NAME)
+//        query.whereKey(PF_USER_OBJECTID, notEqualTo: user.objectId)
+//        query.whereKey(PF_USER_FULLNAME_LOWER, containsString: searchLower)
+//        query.orderByAscending(PF_USER_FULLNAME)
+//        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+//            if error == nil {
+//                self.users.removeAll(keepCapacity: false)
+//                self.users += objects as! [PFUser]!
+//                self.tableView.reloadData()
+//            } else {
+//                ProgressHUD.showError("Network error")
+//            }
+//            
+//        }
+//    }
     
     // MARK: - User actions
     
@@ -113,8 +113,8 @@ class SelectSingleViewController: UITableViewController, UISearchBarDelegate {
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         if count(searchText) > 0 {
-            self.searchUsers(searchText.lowercaseString)
-        } else {
+//            self.searchUsers(searchText.lowercaseString)
+//        } else {
             self.loadUsers()
         }
     }
